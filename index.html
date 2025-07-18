@@ -85,21 +85,26 @@
     <br />
     <button onclick="checkAnswer()">Проверить</button>
     <br />
-    <a id="download-link" href="files/secret.pdf" download>📥 Скачать подарок</a>
+    <p id="congrats-message" style="display: none; color: #cc3366; font-size: 18px; margin-top: 20px;">
+     Я в тебе не сомневалась. С Днём Рождения, родной. <a href="files/test" download style="color: #cc3366; text-decoration: underline;">Нажми сюда</a>, чтобы получить свой подарок 🎁
+    </p>
   </div>
 
-  <script>
-    function checkAnswer() {
-      const correctAnswer = "пилот";
-      const userAnswer = document.getElementById("user-answer").value.trim().toLowerCase();
+<script>
+  function checkAnswer() {
+    const correctAnswer = "пилот"; // правильный ответ
+    const userAnswer = document.getElementById("user-answer").value.trim().toLowerCase();
 
-      if (userAnswer === correctAnswer) {
-        document.getElementById("download-link").style.display = "inline-block";
-      } else {
-        alert("Неверный ответ. Попробуй ещё раз 🌸");
-      }
+    if (userAnswer === correctAnswer) {
+      document.getElementById("download-link").style.display = "inline-block";
+      document.getElementById("congrats-message").style.display = "block";
+    } else {
+      alert("Неверный ответ. Попробуй ещё раз 🌸");
+      document.getElementById("download-link").style.display = "none";
+      document.getElementById("congrats-message").style.display = "none";
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
