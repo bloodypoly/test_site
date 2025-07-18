@@ -6,41 +6,97 @@
   <title>Проверка ответа</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff8dc; /* Нежно-жёлтый фон */
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Red_heart_icon.svg/1024px-Red_heart_icon.svg.png');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 100px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
     }
-    input, button {
-      padding: 10px;
-      margin-top: 10px;
-      font-size: 16px;
+
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 400px;
     }
+
+    h1 {
+      color: #cc3366;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ffcccc;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #333;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffb6b6;
+    }
+
     #download-link {
       display: none;
       margin-top: 20px;
+      font-weight: bold;
+      color: #cc3366;
+      text-decoration: none;
+    }
+
+    #download-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <h1>Ответь на вопрос</h1>
-  <p>Введи ответ на шараду</p>
-  <input type="text" id="user-answer" placeholder="Ваш ответ" />
-  <br />
-  <button onclick="checkAnswer()">Проверить</button>
-
-  <a id="download-link" href="files/test_image.jpg" download>📥 Скачать файл</a>
+  <div class="container">
+    <h1>Ну что, догадался, красавчик? 💖</h1>
+    <input type="text" id="user-answer" placeholder="Ваш ответ" />
+    <br />
+    <button onclick="checkAnswer()">Проверить</button>
+    <br />
+    <a id="download-link" href="files/secret.pdf" download>📥 Скачать подарок</a>
+  </div>
 
   <script>
     function checkAnswer() {
-      const correctAnswer = "пилот"; // правильный ответ
-      const userAnswer = document.getElementById("user-answer").value.trim();
+      const correctAnswer = "пилот";
+      const userAnswer = document.getElementById("user-answer").value.trim().toLowerCase();
 
       if (userAnswer === correctAnswer) {
         document.getElementById("download-link").style.display = "inline-block";
       } else {
-        alert("Неверный ответ. Попробуйте снова.");
+        alert("Неверный ответ. Попробуй ещё раз 🌸");
       }
     }
   </script>
