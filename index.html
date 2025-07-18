@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Проверка ответа</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #download-link {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ответь на вопрос</h1>
+  <p>Введи ответ на шараду</p>
+  <input type="text" id="user-answer" placeholder="Ваш ответ" />
+  <br />
+  <button onclick="checkAnswer()">Проверить</button>
+
+  <a id="download-link" href="files/test_image.jpg" download>📥 Скачать файл</a>
+
+  <script>
+    function checkAnswer() {
+      const correctAnswer = "пилот"; // правильный ответ
+      const userAnswer = document.getElementById("user-answer").value.trim();
+
+      if (userAnswer === correctAnswer) {
+        document.getElementById("download-link").style.display = "inline-block";
+      } else {
+        alert("Неверный ответ. Попробуйте снова.");
+      }
+    }
+  </script>
+
+</body>
+</html>
